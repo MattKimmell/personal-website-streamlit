@@ -2,10 +2,11 @@ import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
 from PIL import Image
+import json
 
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
+st.set_page_config(page_title="My Webpage", page_icon=":high_brightness:", layout="wide")
 
 
 def load_lottieurl(url):
@@ -24,18 +25,26 @@ def local_css(file_name):
 local_css("style/style.css")
 
 # ---- LOAD ASSETS ----
-lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
-img_contact_form = Image.open("images/yt_contact_form.png")
-img_lottie_animation = Image.open("images/yt_lottie_animation.png")
+lottie_coding_whatido = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
+img_contact_form = Image.open("images/mining.jpg")
+img_lottie_animation = Image.open("images/taro.jpg")
+
+with open("images/new-bitcoin-touch.json", 'r') as json_f:
+    header_json = json.load(json_f)
+lottie_coding_header = header_json
 
 # ---- HEADER SECTION ----
 with st.container():
-    st.subheader("Hi, I am Matthew Kimmell :wave:")
-    st.title("Your Friendly Neighborhood Bitcoin Pal")
-    st.write(
-        "I am passionate about finding ways to use Python to be more efficient and effective in business settings."
-    )
-    st.write("[Twitter](https://twitter.com/MatthewKimmell)")
+    left_column, right_column = st.columns(2)
+    with left_column:
+        st.subheader("Hi, I am Matthew Kimmell :wave:")
+        st.title("Your Friendly Neighborhood Bitcoin Pal")
+        st.write(
+            "Welcome to humble abode, it's not much, but if you stick around long enough, I promise to teach you something new :bulb:"
+        )
+        st.write("[Twitter](https://twitter.com/MatthewKimmell)")
+    with right_column:
+        st_lottie(lottie_coding_header, height=350, key="bitcoin")
 
 # ---- WHAT I DO ----
 with st.container():
@@ -48,16 +57,16 @@ with st.container():
             """
             I make videos and write for people that:
             - are interested in learning about Bitcoin
-            - find news is better set in context to historical events
             - enjoy storytelling through charts and graphs
             - want to perform meaningful and impactful analyses by themselves
+            - don't have time for the deeper research
 
             If this sounds interesting to you, consider subscribing and turning on the notifications, so you don’t miss any content.
             """
         )
         st.write("[YouTube Channel](https://www.youtube.com/channel/UCV00jVwqZ_cyP-yygLtWFjA)")
     with right_column:
-        st_lottie(lottie_coding, height=300, key="coding")
+        st_lottie(lottie_coding_whatido, height=300, key="coding")
 
 # ---- PROJECTS ----
 with st.container():
@@ -68,28 +77,27 @@ with st.container():
     with image_column:
         st.image(img_lottie_animation)
     with text_column:
-        st.subheader("Integrate Lottie Animations Inside Your Streamlit App")
+        st.subheader("Taro: A New Asset Issuance Protocol on Bitcoin")
         st.write(
             """
-            Learn how to use Lottie Files in Streamlit!
-            Animations make our web app more engaging and fun, and Lottie Files are the easiest way to do it!
-            In this tutorial, I'll show you exactly how to do it
+            Learn all about Taro!
+            This new proposal enables new types of asset issuance and spending on the Bitcoin and Lightning Networks. Want to learn about it?
             """
         )
-        st.markdown("[Watch Video...](https://youtu.be/TXSOitGoINE)")
+        st.markdown("[Read Here](https://coinshares.com/research/taro-a-new-asset-issuance-protocol-on-bitcoin)")
 with st.container():
     image_column, text_column = st.columns((1, 2))
     with image_column:
         st.image(img_contact_form)
     with text_column:
-        st.subheader("How To Add A Contact Form To Your Streamlit App")
+        st.subheader("The Bitcoin Mining Network")
         st.write(
             """
-            Want to add a contact form to your Streamlit website?
-            In this video, I'm going to show you how to implement a contact form in your Streamlit app using the free service ‘Form Submit’.
+            Curious about Bitcoin's energy consumption and environmental impact?
+            In this report, I'm going to show the results of a model that calculates just that. We highlight the patterns and trends of Bitcoin Mining, its power draw and carbon emissions by country and region, check it out!
             """
         )
-        st.markdown("[Watch Video...](https://youtu.be/FOULV9Xij_8)")
+        st.markdown("[Read Here](https://coinshares.com/research/bitcoin-mining-network-2022)")
 
 # ---- CONTACT ----
 with st.container():
@@ -99,7 +107,7 @@ with st.container():
 
     # Documention: https://formsubmit.co/ !!! CHANGE EMAIL ADDRESS !!!
     contact_form = """
-    <form action="https://formsubmit.co/YOUR@MAIL.COM" method="POST">
+    <form action="https://formsubmit.co/mattkimmellyt@gmail.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Your name" required>
         <input type="email" name="email" placeholder="Your email" required>
