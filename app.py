@@ -31,11 +31,11 @@ img_lottie_animation = Image.open("images/yt_lottie_animation.png")
 # ---- HEADER SECTION ----
 with st.container():
     st.subheader("Hi, I am Matthew Kimmell :wave:")
-    st.title("Testing out Streamlit")
+    st.title("Your Friendly Neighborhood Bitcoin Pal")
     st.write(
         "I am passionate about finding ways to use Python to be more efficient and effective in business settings."
     )
-    st.write("[Learn More >](https://pythonandvba.com)")
+    st.write("[Twitter](https://twitter.com/MatthewKimmell)")
 
 # ---- WHAT I DO ----
 with st.container():
@@ -46,16 +46,16 @@ with st.container():
         st.write("##")
         st.write(
             """
-            On my YouTube channel I am creating tutorials for people who:
-            - are looking for a way to leverage the power of Python in their day-to-day work.
-            - are struggling with repetitive tasks in Excel and are looking for a way to use Python and VBA.
-            - want to learn Data Analysis & Data Science to perform meaningful and impactful analyses.
-            - are working with Excel and found themselves thinking - "there has to be a better way."
+            I make videos and write for people that:
+            - are interested in learning about Bitcoin
+            - find news is better set in context to historical events
+            - enjoy storytelling through charts and graphs
+            - want to perform meaningful and impactful analyses by themselves
 
             If this sounds interesting to you, consider subscribing and turning on the notifications, so you don’t miss any content.
             """
         )
-        st.write("[YouTube Channel >](https://youtube.com/c/CodingIsFun)")
+        st.write("[YouTube Channel](https://www.youtube.com/channel/UCV00jVwqZ_cyP-yygLtWFjA)")
     with right_column:
         st_lottie(lottie_coding, height=300, key="coding")
 
