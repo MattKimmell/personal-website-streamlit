@@ -4,10 +4,6 @@ from streamlit_lottie import st_lottie
 from PIL import Image
 import json
 
-# run.py
-if __name__ == "__main__":
-    app.run()
-
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="My Webpage", page_icon=":high_brightness:", layout="wide")
